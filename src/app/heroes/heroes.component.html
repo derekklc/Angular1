@@ -1,1 +1,18 @@
-<p>heroes works!</p>
+<h2>My Heroes</h2>
+<ul class="heroes">
+  <span>Current Selection: {{ selectedHero?.name || "unselected" }}</span>
+  <li *ngFor="let hero of heroes">
+    <button type="button" (click)="onSelection(hero.id)">
+      <span class="badge">{{ hero.id }}</span>
+      <span class="name">{{ hero.name }}</span>
+      <!-- <input id="hero-name" [(ngModel)]="hero.name" placeholder="name" /> -->
+    </button>
+  </li>
+</ul>
+
+<div *ngIf="!!selectedHero">
+  <span>Hero Details: </span>
+  <span>Hero name: {{ selectedHero.name }}</span>
+</div>
+
+<app-hero-detail [hero]="selectedHero"></app-hero-detail>
