@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { HeroService } from './hero.service';
+import { Hero } from './hero';
 
 @Component({
   selector: 'some-root',
