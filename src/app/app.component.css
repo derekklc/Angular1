@@ -40,6 +40,11 @@ button:disabled {
   color: #aaa;
   cursor: auto;
 }
+nav {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
 
 /* everywhere else */
 * {

@@ -1,18 +1,20 @@
 <h2>My Heroes</h2>
 <ul class="heroes">
-  <span>Current Selection: {{ selectedHero?.name || "unselected" }}</span>
+  <!-- <span>Current Selection: {{ selectedHero?.name || "unselected" }}</span> -->
   <li *ngFor="let hero of heroes">
-    <button type="button" (click)="onSelection(hero.id)">
+    <!-- <button type="button" (click)="onSelection(hero.id)">
       <span class="badge">{{ hero.id }}</span>
       <span class="name">{{ hero.name }}</span>
-      <!-- <input id="hero-name" [(ngModel)]="hero.name" placeholder="name" /> -->
-    </button>
+    </button> -->
+    <a routerLink="/detail/{{ hero.id }}">
+      <span class="badge">{{ hero.id }}</span> {{ hero.name }}
+    </a>
   </li>
 </ul>
-
+<!-- 
 <div *ngIf="!!selectedHero">
   <span>Hero Details: </span>
   <span>Hero name: {{ selectedHero.name }}</span>
-</div>
+</div> -->
 
-<app-hero-detail [hero]="selectedHero"></app-hero-detail>
+<app-hero-detail></app-hero-detail>

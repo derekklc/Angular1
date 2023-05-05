@@ -1,5 +1,5 @@
 import { Hero } from '../hero';
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
@@ -16,14 +16,20 @@ export class HeroDetailComponent {
     private heroService: HeroService,
     private location: Location
   ) {}
-  @Input() hero?: Hero;
+  // @Input() hero?: Hero;
+  hero?: Hero;
   ngOnInit(): void {
+    this.getHero();
+  }
+  getHero(): void {
     const urlId = Number(this.route.snapshot.paramMap.get('id'));
-    console.log('hero detail loaded', urlId);
     if (typeof urlId === 'number') {
       this.heroService.getHeroes().subscribe((heroesList) => {
         this.hero = heroesList.find((item) => item.id === urlId);
       });
     }
+  }
+  goBack(): void {
+    this.location.back();
   }
 }
