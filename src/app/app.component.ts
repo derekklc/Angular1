@@ -9,5 +9,4 @@ import { Hero } from './hero';
 })
 export class AppComponent {
   title = 'Tour of Heroes';
-  abcde = '12345';
 }
